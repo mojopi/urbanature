@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<style>
+	
+	p {font-family:courier;
+		font-size:18px;}
+
+		h1 {
+			font-family:courier;
+		font-size:30px;
+
+		}
+</style>
+
+<body>
+
+
+<h1>projects</h1>
+
+
+<p>
+    In the spring, I made a friend by walking and talking together. On walks, I pointed out things that I saw in the world — seed pods, fruits, flowers, the sky. Because my friend appreciated my enthusiasm for the natural world, my love of nature had a new place to express itself. I started texting photographs of plants we had seen on walks on my daily jog.As I photographed more and shared more, I began to see  more — patterns, textures, phenomena, specific species and how they developed over time... 
+
+
+</p>
+
+<p>
+    
+
+   Hearing patterns in music, feeling something, and re-expressing that feeling by playing music can change the way that you  pay attention in the world. Similarly,  seeing patterns and species in the natural world and re-expressing the feeling them can change the way you see and experience the world.  The feeling evoked by references you see can be re-expressed in creative ways and shared as touchstones (like secretes or inside jokes) in frienships. </p>
+
+<p>
+    Each photograph below represents something I began to see as a result of the habits I cultivated in a friendship. Each photograph is a link.
+
+
+    <a href="">The moon</a> Milkweed Lamb's Ear SOTINW Plant Habits: Phojography Sitting With...
+</p>
+
+    <script>
+
+    function makeSquare (i) {
+
+    	var link = document.createElement('a');
+            document.body.appendChild(link);
+            link.href = "sotinw" + i + ".html";
+
+
+
+            var square = document.createElement('div');
+                        link.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "500px";
+            square.style.display = "inline-block";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(sotinw" + i + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + i;};
+
+
+
+    for (var i = 3; i < 23; i++) 
+    { makeSquare(i);}
+    </script>
+</body>
+
+</html>

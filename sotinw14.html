@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+    <style>
+
+    #h1{
+        font-family: courier;
+        font-size:30px;
+    }
+
+
+    #h2{
+        font-family: courier;
+        font-size:25px;
+    }
+
+    p{
+        font-family: courier;
+        font-size:18px;
+    }
+        
+
+    </style>
+    
+</head>
+<body>
+
+  <div>
+
+<span id="h1">milkweeds</span> <br><br>
+
+
+<p></p>
+
+  </div>
+
+  <script>
+
+
+
+    function makeSquare (i) {
+
+    	
+
+
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "400px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(./phojography/milkweed/" + i + ".jpg)";
+
+            square.style.backgroundSize = "cover";
+            square.style.id = "square" + i;};
+
+
+
+    for (var i = 1; i < 11; i++) 
+    { makeSquare(i);}
+
+
+        var divider = document.createElement('div');
+        document.body.appendChild(divider);
+        divider.style.width = "800px";
+        divider.style.height = "50px";
+
+        function makeBox (i) {var box = document.createElement('div');
+        document.body.appendChild(box);
+            box.style.width = "400px";
+            box.style.height = "400px";
+            box.style.display = "inline-block";
+            box.style.margin = "10px";
+            box.style.backgroundRepeat = "no-repeat";
+            box.style.border = "1px";
+
+            // box.style.backgroundColor = "green";
+
+            box.style.backgroundImage = "url(./phojography/milkweed/a" + i + ".jpg)";
+
+            box.style.backgroundSize = "cover";
+            box.style.id = "box" + i;};
+
+
+
+    for (var i = 1; i < 20; i++) 
+    { makeBox(i);}
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+    <style>
+
+    #h1{
+        font-family: courier;
+        font-size:30px;
+    }
+
+    p{
+        font-family: courier;
+        font-size:18px;
+    }
+        
+
+    </style>
+    
+</head>
+<body>
+
+  <div>
+
+<span id="h1">Magical Realism</span>
+
+<p>The thumbnail came with the text "stegosaur in Central Square." After it was shared with me, I began seeing and taking photographs of imaginary scenes in the world. I played with size and scaling, perspective, anthropomorphized plants and objects, and added surreal captions in order to see and share magical scenes in the world.</p>
+
+  </div>
+
+  <script>
+
+
+
+    function makeSquare (i) {
+
+    	
+
+
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "400px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(./phojography/surrealism/" + i + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + i;};
+
+
+
+    for (var i = 1; i < 15; i++) 
+    { makeSquare(i);}
+    </script>
+
+</body>
+</html>

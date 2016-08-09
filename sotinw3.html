@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		
+		p {font-family:courier;
+		font-size:18px;}
+
+		#h1 {
+		font-family:courier;
+		font-size:30px;
+
+		}
+	</style>
+</head>
+<body>
+
+<span id="h1">Fossils</span>
+<p>I spend a lot of working on my laptop at cafes and at MIT Sloan's School of Management. One days I noticed while walking up the stars that the marble they're made of is filled with...fossils! These are ammonites fossils.</p>
+
+ <script>
+
+
+
+    function makeSquare (i) {
+
+    	
+
+
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "500px";
+            square.style.height = "600px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(./phojography/fossils/" + i + ".jpg)";
+
+            square.style.backgroundSize = "cover";
+            square.style.id = "square" + i;};
+
+
+
+    for (var i = 1; i < 12; i++) 
+    { makeSquare(i);}
+    </script>
+
+
+
+
+</body>
+</html>

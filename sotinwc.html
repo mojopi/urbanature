@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+  <script>
+
+    function makeSquare (i) {
+
+    	var link = document.createElement('a');
+            document.body.appendChild(link);
+            link.href = "sotinw" + i + ".html";
+
+
+
+            var square = document.createElement('div');
+                        link.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "500px";
+            square.style.display = "inline-block";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(./fossils/" + i + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + i;};
+
+
+
+    for (var i = 1; i < 3; i++) 
+    { makeSquare(i);}
+    </script>
+
+</body>
+</html>
