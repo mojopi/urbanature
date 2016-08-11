@@ -10,34 +10,59 @@
 	width:500px;
 	height:500px;
 	border-width: 1px;
-/*	border-style: solid;
-*/	margin-left: auto;
+	position:relative;
+	margin-left: auto;
 	margin-right:auto;
-	  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.6);
-
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.6);
+	background-size:cover;
+	background-repeat: no-repeat;
 }
 
 #textBox {
-	width:1000px;
-	height:200px;
-	background-color:lightblue;
+	left:0px;
+	width:300px;
+	height:100px;
+	margin-top:20px;
+	position:relative;
+	top:100%;
+	padding-left:200px;
+	padding-right: 100px;
+	font-family:courier;
+	font-size:30px;
 	margin-left: auto;
 	margin-right:auto;
 }
 
 .button {
-	width:50px;
-	height:50px;
-	background-color: red;
-	position:fixed;
-	z-index: 5;
+	width:300px;
+	height:200px;
+/*	background-color: red;
+*/	position:fixed;
+	z-index: 2;
 	top:80%;
+	cursor:none;
 
 }
 
 #nextPage {
-	right:20px;
+	right:50px;
+	background-image:url(butterfly.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	animation-name:flap;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps(2);
 
+
+
+
+}
+
+@keyframes flap {
+
+0%{ background-position:10px;}
+100%{ background-position:-500px;}
 }
 
 #goBack {
@@ -45,15 +70,62 @@
 
 }
 
+
+#cursor{
+	background-size:contain;
+	background-repeat: no-repeat;
+	position: fixed;
+	z-index: 1;
+	cursor: none;
+/*	background-image:url(pod.png); 
+	width:200px; 
+	height:200px;*/
+	
+
+
+}
+
+/*@keyframes upAndDown {
+
+0%{ transform:translateY(0px);}
+
+50%{ transform:translateY(-10px);}
+
+100%{ transform:translateY(0px);}
+
+
+}*/
+@keyframes fly {
+
+0%{ background-position:10px;}
+100%{ background-position:-630px;}
+}
+
+
+
+
+@keyframes rotate {
+
+0%{ transform:rotate(0deg);}
+50%{ transform:rotate(-10deg);}
+100%{ transform:rotate(0deg);} 
+}
+
 	
 
 </style>
 <body>
+<div id="cursor"></div>
 
-<div id="frame"></div>
-<div id="textBox"></div>
 
-<div class = "button" id="nextPage"></div>
+<div id="frame" style="background-image:url(0.jpg)">
+	
+	<div id="textBox"></div>
+
+</div>
+
+
+<div class = "button" id="nextPage" style="width:200px;"></div>
 <div class = "button" id="goBack"></div>
 
 
@@ -64,23 +136,91 @@
 	
 	var frame = document.getElementById('frame');
 	var textBox = document.getElementById("textBox");
-	var nextPage = document.getElementById('nextPage');
-	var goBack = document.getElementById('goBack');
+	var next = document.getElementById('nextPage');
+	var back = document.getElementById('goBack');
+    
+
+    var text = [" ", "bye!", "woah!", "WOAH!", "wee!", "hello?", "brr.", " ", " ", " ", " " ]
 
 
-var next = 0
-	function changeBackgroundImage (i) {
-		next = next + 1;
-		frame.style.backgroundImage = "url(" + next + ").jpg";
-	}
+var currentPicture = 0;
 
-	nextPage.addEventListener("click", 
+var cursor = document.getElementById("cursor");
 
-		)
 
-	function changeBackgroundImage () {
 
-	}
-	frame.style.backgroundImage = 
+function changeCursorImage() {
+
+	function moveAndPositionCursorImage () {
+	document.addEventListener("mousemove", function(event) {
+                cursor.style.top = event.y - (parseInt(cursor.style.width)/2)  + "px";
+                cursor.style.left = event.x - (parseInt(cursor.style.width)/2) + "px";
+            })
+}
+
+
+	if (currentPicture == 0) {
+			cursor.style.backgroundImage = "url(pod.png)";
+			cursor.style.width = "200px";
+			cursor.style.height = cursor.style.width;
+            moveAndPositionCursorImage();
+
+}
+else if (currentPicture >= 1 && currentPicture < 6) {
+				cursor.style.backgroundImage = "url(seed.png)";
+				cursor.style.backgroundSize = "contain";
+				cursor.style.width = "100px";
+				cursor.style.height = cursor.style.width;
+				cursor.style.animationName = "rotate";
+				cursor.style.animationDuration = "2s";
+				cursor.style.animationIterationCount = "infinite";
+            	moveAndPositionCursorImage();
+}
+else if (currentPicture >= 6 && currentPicture <7) {cursor.style.backgroundImage = "none"} 
+
+else if (currentPicture == 8) {
+				cursor.style.backgroundImage = "url(butterfly.png)";
+				cursor.style.backgroundSize ="cover";
+				cursor.style.width = "300px";
+				cursor.style.height = cursor.style.width;
+				cursor.style.animationName = "fly";
+				cursor.style.animationTimingFunction ="steps(2)"
+				cursor.style.animationDuration = "0.5s";
+				cursor.style.animationIterationCount = "infinite";
+            	moveAndPositionCursorImage();
+}
+
+
+
+}
+
+
+
+changeCursorImage();
+
+
+
+next.addEventListener("click", function nextImage () {
+		console.log("hi!");
+		currentPicture = currentPicture + 1;
+		if ( currentPicture == 7) {frame.style.backgroundImage = "url(" + currentPicture + ".gif)"}
+
+		else if (currentPicture != 7){frame.style.backgroundImage = "url(" + currentPicture + ".jpg)";
+}; 
+		changeCursorImage();
+		textBox.innerText = text[currentPicture];});
+
+
+	back.addEventListener("click", function previousImage () {
+		console.log("hello!");
+		currentPicture = currentPicture - 1;
+		frame.style.backgroundImage = "url(" + currentPicture + ".jpg)";
+		changeCursorImage();
+		textBox.innerText = text[currentPicture];});
+
+
+
+	 
+
 </script>
 </html>
