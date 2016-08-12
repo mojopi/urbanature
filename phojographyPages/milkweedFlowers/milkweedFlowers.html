@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <style>
+            
+            #h1{
+        font-family: courier;
+        font-size:30px;
+    }
+      </style>
+</head>
+<body>
+
+<span id="h1">Milkweed Flowers</span>
+
+<br><br>
+
+<script type="text/javascript">
+      
+      function makeSquare (i) {
+
+            var square = document.createElement('div');
+            document.body.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "500px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(milkweedFlower" + i + ".jpg)";
+
+            square.style.backgroundSize = "cover";
+            square.style.id = "square" + i;};
+
+            for (var i = 1; i < 10; i++) 
+    { makeSquare(i);}
+
+</script>
+
+</body>
+</html>

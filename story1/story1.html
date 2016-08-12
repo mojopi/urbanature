@@ -46,28 +46,18 @@
 
 #nextPage {
 	right:50px;
-	background-image:url(butterfly.png);
+	background-image:url(butterfly1.png);
 	background-size: cover;
 	background-repeat: no-repeat;
-	animation-name:flap;
-	animation-duration: 0.5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: steps(2);
-
-
-
 
 }
 
-@keyframes flap {
-
-0%{ background-position:10px;}
-100%{ background-position:-500px;}
-}
 
 #goBack {
 	left: 20px;
-
+	background-image:url(caterpillarButton.png);
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 
@@ -77,31 +67,13 @@
 	position: fixed;
 	z-index: 1;
 	cursor: none;
-/*	background-image:url(pod.png); 
-	width:200px; 
-	height:200px;*/
-	
-
-
 }
 
-/*@keyframes upAndDown {
-
-0%{ transform:translateY(0px);}
-
-50%{ transform:translateY(-10px);}
-
-100%{ transform:translateY(0px);}
-
-
-}*/
 @keyframes fly {
 
 0%{ background-position:10px;}
 100%{ background-position:-630px;}
 }
-
-
 
 
 @keyframes rotate {
@@ -140,7 +112,7 @@
 	var back = document.getElementById('goBack');
     
 
-    var text = [" ", "bye!", "woah!", "WOAH!", "wee!", "hello?", "brr.", " ", " ", " ", " " ]
+    var text = [" ", "wee!", "woah!", "WOAH!", " ", "hello?", "brr.", " ", " ", " ", " " ]
 
 
 var currentPicture = 0;
@@ -166,7 +138,7 @@ function changeCursorImage() {
             moveAndPositionCursorImage();
 
 }
-else if (currentPicture >= 1 && currentPicture < 6) {
+else if (currentPicture >= 1 && currentPicture < 8) {
 				cursor.style.backgroundImage = "url(seed.png)";
 				cursor.style.backgroundSize = "contain";
 				cursor.style.width = "100px";
@@ -176,7 +148,7 @@ else if (currentPicture >= 1 && currentPicture < 6) {
 				cursor.style.animationIterationCount = "infinite";
             	moveAndPositionCursorImage();
 }
-else if (currentPicture >= 6 && currentPicture <7) {cursor.style.backgroundImage = "none"} 
+// else if (currentPicture == 6) {cursor.style.backgroundImage = "none"} 
 
 else if (currentPicture == 8) {
 				cursor.style.backgroundImage = "url(butterfly.png)";
@@ -189,8 +161,6 @@ else if (currentPicture == 8) {
 				cursor.style.animationIterationCount = "infinite";
             	moveAndPositionCursorImage();
 }
-
-
 
 }
 
