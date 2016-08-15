@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+/*    Make button that changes to a different moon phase?
+*/    #page {
+        background-color: black;
+    }
+    
+    .sky {
+        width: 500px;
+        height: 200px;
+        background-color: blue;
+        margin: 40px;
+        display: inline-block;
+        z-index: -100;
+        position: fixed;
+        top: 30%;
+        font-family: "MilkyWay";
+        padding: 20px;
+        text-align: center;
+        opacity: 0.5;
+    }
+    
+    #moon {
+        position: fixed;
+        top: 0%;
+        right: 100%;
+        width: 400px;
+        height: 400px;
+        z-index: -10;
+        right: 0%;
+        font-family: "MilkyWay";
+        color: white;
+    }
+    
+    #iphone {
+        background-image: url(iphone-background.png);
+        width: 1500px;
+        height: 1050px;
+        background-size: cover;
+        position: relative;
+        top: 500px;
+        z-index: 10;
+        bottom: 0%;
+        left: 0%;
+    }
+    
+    #stars {
+        font-size: 40px;
+        top: 0%;
+        position: fixed;
+        z-index: -20;
+    }
+    
+    #texts {
+        /*            background-image: url(http://cl.ly/0s0Y3d3T3C3J/8-1-15_207PM.png);
+*/
+        width: 1200px;
+        height: 620px;
+        background-size: contain;
+        position: relative;
+        top: 25%;
+        left: 8%;
+        border-radius: 5%;
+        background-image:cover;
+        background-repeat: no-repeat;
+    }
+    
+    #date {
+        position: relative;
+        top: 15%;
+        height: 100px;
+        width: 800px;
+        left: 40%;
+    }
+    </style>
+</head>
+
+<body id="page">
+    <div id="moon"></div>
+    <div id="iphone">
+        <div id="date"></div>
+        <div id="texts">
+            <div>
+            </div>
+            <script type="text/javascript">
+            window.onload = function() {
+                var state = "MA";
+                var city = "Boston";
+                var wundergroundKey = "347dedfeb658d999";
+
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", reqListener);
+
+                oReq.open("GET", "http://api.wunderground.com/api/" + wundergroundKey + "/astronomy/q/" + state + "/" + city + ".json");
+
+
+                oReq.send();
+
+
+
+                function reqListener() {
+
+                    var response = JSON.parse(this.responseText);
+                    console.log(this.responseText)
+
+                    var moonDiv = document.getElementById('moon');
+                    document.body.appendChild(moonDiv);
+
+                    moonDiv.style.backgroundSize = "contain";
+                    moonDiv.style.backgroundRepeat = "no-repeat";
+                    var moonPhase = response.moon_phase.phaseofMoon;
+                    var currentTime = response.moon_phase.current_time.hour;
+                    moonDiv.id = "moon";
+
+
+                    function starCreate(element, index) {
+
+                        var self = this;
+
+                        self.div = document.createElement("div");
+                        document.body.appendChild(self.div);
+                        self.div.className = "stars";
+                        self.div.style.width = (Math.random() * 4) * 4 + "px";
+                        self.div.style.height = self.div.style.width;
+                        self.div.style.backgroundColor = "#E6E6FA";
+                        self.div.style.position = "fixed";
+                        self.div.id = "star" + index;
+                        self.div.style.borderRadius = "40%";
+                        self.div.style.top = Math.floor((Math.random() * 4) * 100) + "px";
+                        self.div.style.left = Math.floor(Math.random() * 3 * 300) + "px";
+                        self.div.className = "stars";
+                        self.div.addEventListener("click", function() {
+                            console.log("frank!");
+                            texts.style.backgroundImage = "url(" + element[2] + ")";
+                            var date = document.getElementById('date');
+                            date.style.fontFamily = "Courier New";
+                            date.style.fontStyle = "light";
+                            date.style.fontSize = "14px";
+                            // date.innerText.style.textAlign="center";
+                            date.innerText = element[1] + "\n" + "Moon Phase - " + moonPhase;
+                        });
+
+
+
+                    };
+
+
+
+                    if (moonPhase == "Waning Gibbous") {
+
+
+                        moonDiv.style.backgroundImage = "url(http://cl.ly/1D0B2f0U0S1d/waning-gibbous.png)";
+
+                        var waningGibbous =
+
+                            [
+                                ["Waning Gibbous", "Saturday, August 1st, 2015", "7-23-15.png.png"],
+
+                                ["Waning Gibbous", "Saturday, August 1st, 2015", "7-23-15.png.png"],
+
+                                ["Waning Gibbous", "Sunday, August 2nd, 2015", "7-23-15.png.png"],
+
+                                ["Waning Gibbous", "Monday, August 3rd, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Monday, August 3rd, 2015", "7-23-15.png"],
+
+
+                                ["Waning Gibbous", "Monday, August 3rd, 2015", "7-23-15.png"],
+
+
+                                ["Waning Gibbous", "Tuesday, August 4th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Tuesday, August 4th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Tuesday, August 4th, 2015", "7-23-15.png"],
+
+
+                                ["Waning Gibbous", "Wednesday, August 5th, 2015", "7-23-15.png"],
+
+
+                                ["Waning Gibbous", "Wednesday, August 5th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Wednesday, August 5th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Wednesday, August 5th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Sunday, August 30th, 2015", "7-29-15.png"],
+
+                                ["Waning Gibbous", "Sunday, August 30th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Sunday, August 30th, 2015", "7-29-15.png"],
+
+
+                                ["Waning Gibbous", "Sunday, August 30th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Sunday, August 30th, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Monday, August 31st, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Monday, August 31st, 2015", "7-29-15.png"],
+
+
+                                ["Waning Gibbous", "Monday, August 31st, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Monday, August 31st, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Tuesday, September 1st, 2015", "7-29-15.png"],
+
+                                ["Waning Gibbous", "Tuesday, September 1st, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Tuesday, September 1st, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Tuesday, September 1st, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Tuesday, September 1st, 2015", "                               7-23-15.png"]
+
+                                ["Waning Gibbous", "Wednesday, September 2nd, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Wednesday, September 2nd, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Thursday, September 3rd, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Thursday, September 3rd, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Thursday, September 3rd, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Thursday, September 3rd, 2015", "7-23-15.png"],
+
+
+                                ["Waning Gibbous", "Thursday, September 3rd, 2015", "7-23-15.png"],
+
+
+                                ["Waning Gibbous", "Thursday, September 3rd, 2015", "7-23-15.png"],
+
+                                ["Waning Gibbous", "Friday, September 4th, 2015", "7-23-15.png"]
+
+
+                            ];
+
+
+
+                        waningGibbous.forEach(function(value, index) {
+                            starCreate(waningGibbous[index])
+
+                        });
+
+                    } // bracket for if//
+                    else if (moonPhase == "Full Moon") {
+                        moonDiv.style.backgroundImage = "url(http://cl.ly/0f1u271c2R2u/full-moon.png)";
+
+
+                        var fullMoon = [
+                            ["Full phaseofMoon", "Saturday, August 29th, 2015", "7-23-15.png"],
+
+                            ["Full phaseofMoon", "Saturday, August 29th, 2015", "7-23-15.png"],
+
+                            ["Full phaseofMoon", "Saturday, August 29th, 2015", "7-23-15.png"]
+                        ];
+
+
+                        fullMoon.forEach(function(value, index) {
+                            starCreate(fullMoon[index])
+                        });
+                    } //this is the bracket for the if statement//
+                    else if (moonPhase == "Waxing Gibbous") {
+                        moonDiv.style.backgroundImage = "url(waxing-gibbous.png)";
+
+                        var waxingGibbous = [
+
+
+
+                            ["Waxing Gibbous", "Monday, August 24th, 2015", "7-23-15.png"],
+
+                            ["Waxing Gibbous", "Monday, August 24th, 2015", "7-23-15.png"],
+
+
+                            ["Waxing Gibbous", "Tuesday, August 25th, 2015", "7-23-15.png"],
+
+
+                            ["Waxing Gibbous", "Friday, August 28th, 2015", "7-23-15.png"],
+
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Wednesday, September 30th, 2015", "7-23-15.png"],
+
+
+                            ["Waning Gibbous", "Thursday, October 1st, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Thursday, October 1st, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Thursday, October 1st, 2015", "7-23-15.png"],
+
+                            ["Waning Gibbous", "Thursday, October 1st, 2015", "7-23-15.png"]
+
+
+
+
+
+
+
+                        ];
+
+                        waxingGibbous.forEach(
+                            function(value, index) {
+                                starCreate(waxingGibbous[index])
+                            });
+
+
+                    } else if (moonPhase == "First Quarter") {
+                        moonDiv.style.backgroundImage = "url(first-quarter.png)";
+
+
+                        var firstQuarter = [
+
+                            ["First Quarter", "Saturday, August 22nd, 2015", "8-22-15_132AM.png"],
+
+                            ["First Quarter", "Saturday, August 22nd, 2015", "8-22-15_752PM.png"]
+
+                                ["First Quarter", "Saturday, August 22nd, 2015", "8-22-15_752PM.png"]
+
+                                ["First Quarter", "Saturday, August 22nd, 2015", "8-22-15_752PM.png"]
+
+                                ["First Quarter", "Saturday, August 22nd, 2015", "8-22-15_752PM.png"]
+
+                                    ["First Quarter", "Saturday, August 22nd, 2015", "8-22-15_752PM.png"]
+
+
+
+
+                        ];
+
+
+
+
+
+                        firstQuarter.forEach(
+                            function(value, index) {
+                                starCreate(firstQuarter[index])
+                            });
+
+
+
+                    } else if (moonPhase == "Third Quarter") {
+                        moonDiv.style.backgroundImage = "url(third-quarter.png)";
+                    } else if (moonPhase == "Waning Crescent") {
+                        moonDiv.style.backgroundImage = "url(waning-crescent.png)";
+
+                        var waningCrescent = [
+
+                            ["Waning Crescent", "Saturday, August 8th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, August 8th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, August 8th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, August 8th, 2015", "7-23-15.png"],
+
+
+                            ["Waning Crescent", "Sunday, August 9th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Sunday, August 9th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Sunday, August 9th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Monday, August 10th, 2015", ".png"],
+
+                            ["Waning Crescent", "Tuesday, August 11th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Tuesday, August 11th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Tuesday, August 11th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Sunday, September 6th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Monday, September 7th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Monday, September 7th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Monday, September 7th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Monday, September 7th, 2015", "9-7-15_C.png"],
+
+                            ["Waning Crescent", "Monday, September 7th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Tuesday, September 8th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Wednesday, September 9th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Wednesday, September 9th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Wednesday, September 9th, 2015", "7-23-15.png"],
+
+
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "10-10-15ZA.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "7-23-15.png"],
+
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "10-10-15ZF.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "10-10-15ZG.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "10-10-15ZH.png"],
+
+                            ["Waning Crescent", "Saturday, October 10th, 2015", "10-10-15ZI.png"]
+
+
+                        ];
+
+                        waningCrescent.forEach(
+                            function(value, index) {
+                                starCreate(waningCrescent[index])
+                            });
+
+
+                    } else if (moonPhase == "Waxing Crescent") {
+                        moonDiv.style.backgroundImage = "url(waxing-crescent.png)";
+
+                        var waxingCrescent = [
+
+
+
+                            ["Waxing Crescent", "Monday, August 17th, 2015", "7-23-15.png"],
+
+                            ["Waxing Crescent", "Monday, August 17th, 2015", "7-23-15.png"],
+
+                            ["Waxing Crescent", "Monday, August 17th, 2015", "7-23-15.png"],
+
+                            ["Waxing Crescent", "Wednesday, August 19th, 2015", "7-23-15.png"],
+
+                            ["Waxing Crescent", "Thursday, August 20th, 2015", "7-23-15.png"],
+
+
+                        ];
+
+                        waxingCrescent.forEach(
+                            function(value, index) {
+                                starCreate(waxingCrescent[index])
+                            });
+
+
+                    } else if (moonPhase == "Last Quarter") {
+                        moonDiv.style.backgroundImage = "url(last-quarter.png)";
+
+                        var waxingCrescent = [
+
+
+
+                            ["Last Quarter", "Saturday, September 5th, 2015", "9-5-15_149PM.png"],
+
+
+                        ];
+
+                        waxingCrescent.forEach(
+                            function(value, index) {
+                                starCreate(waxingCrescent[index])
+                            });
+
+
+                    } else if (moonPhase == "New Moon") {
+                        moonDiv.style.backgroundImage = "url()";
+
+
+                    }; //bracket for last else if 
+
+
+
+
+                    var texts = document.getElementById("texts");
+
+
+                    var stars = document.getElementsByClassName('stars');
+                    var starArray = Array.from(stars);
+                    console.log("stars", stars);
+
+                    starArray.forEach(
+                        function flicker(element, index)
+
+                        {
+                            var rand = Math.random() * 400;
+
+                            function fuck() {
+                                element.style.opacity = 2 * Math.random()
+                            };
+
+                            function changeBrightness() {
+                                setInterval(fuck, rand)
+                            };
+                            changeBrightness();
+                        });
+
+
+
+
+                }; //for req//
+
+
+                // var changeBrightness = function change Brightness() {setInterval(fuck, 500)};
+
+
+                // changeBrightness();
+
+
+
+                // self.div.addEventListener("click", texts.style.backgroundImage = the link!)
+
+
+                // self.div.addEventListener("click", function() {
+                //     texts.style.backgroundImage = smallArray[3]
+                // });
+
+            }; //window onload//
+            </script>
+</body>
+
+</html>

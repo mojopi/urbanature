@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div class="fred"></div>
+<div class="fred"></div>
+<div class="fred"></div>
+<div class="fred"></div>
+<div class="fred"></div>
+
+<script type="text/javascript">
+	 
+	var fred = document.getElementsByClassName("fred");
+	var fredArray = Array.from(fred);
+
+	var myOwnFunction = function(takeSomething) {
+		3 + 6;
+		console.log("Whoa");
+		console.log("!!!!" + takeSomething);
+	};
+	// fredArray.forEach(function(i) {i.innerText="Hello!"})
+	fredArray.forEach(myOwnFunction);
+</script>
+
+</body>
+</html>

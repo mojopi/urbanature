@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>wunderground api test</title>
+    <style>
+    #windspeed {
+    	border-radius:80px;
+    	padding:1em;
+
+    	background-color:rgba(255,255,255,.9);
+    	color:black;
+
+    	font-family:Helvetica;
+    	font-size:2em;
+    	text-align:center;
+
+    	position:absolute;
+    	top:80%;
+    	left:55%;
+    }
+    </style>
+</head>
+
+<body>
+    <script>
+    // This key is no longer active; you will need to generate your own by making an account at https://www.wunderground.com/weather/api/ -- Sorry! Mine was getting use overage warnings.
+    var wundergroundKey = "";
+    var state = "MA";
+    var city = "Boston";
+
+    function reqListener() {
+        var response = JSON.parse(this.responseText);
+        
+        document.body.style.backgroundImage = "url(" + response.current_observation.icon_url + ")";
+        
+        var windDiv = document.createElement('div');
+        windDiv.id = "windspeed";
+		var windspeed = response.current_observation.wind_gust_mph;
+		windDiv.innerText = "The current windspeed is " + windspeed + "MPH!";
+		document.body.appendChild(windDiv);
+    }
+
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "http://api.wunderground.com/api/" + wundergroundKey + "/conditions/q/" + state + "/" + city + ".json");
+    oReq.send();
+    </script>
+</body>
+
+</html>

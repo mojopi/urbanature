@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id= "dateDiv"> </div>
+
+
+<script type="text/javascript">
+
+	
+	var date = new Date (Date.now());
+	var options = {month: "long", weekday:"long", year: "numeric", day: "numeric", };
+	var wantedDate = date.toLocaleDateString('en-US', options);
+
+	var dateDiv = document.getElementById("dateDiv");
+	dateDiv.innerText= wantedDate;
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    /*  body{
+        background-color: black;
+        opacity:1.0;
+        -webkit-filter:hue-rotate(90deg);
+    }*/
+
+    .sky{
+        width:500px;
+        height:200px;
+        background-color: blue;
+        margin:40px;
+        display:inline-block;
+        z-index: -100;
+        position:fixed;
+        top:30%;
+        font-family:"MilkyWay";
+        padding:20px;
+        text-align:center;
+        opacity:0.5;
+
+    }
+
+    #skya {
+        right:20%;
+        top:30%;
+       transform:rotate(7deg);
+
+    }
+
+    #skyb {
+        left:0%;
+        top:0%;
+      transform:rotate(9deg);
+
+    }
+    
+    #skyc {
+        left:50%;
+        top:0%;
+      transform:rotate(9deg);
+
+    }
+
+
+    #skyd {
+        left:30%;
+        top:0%;
+       transform:rotate(-7deg);
+
+    }
+
+     #skyd {
+        right:0%;
+        top:0%;
+        transform:rotate(5deg);
+
+    }
+    #moon {
+        position:fixed;
+        top:0%;
+        left:50%;
+        width:400px;
+        height:400px;
+        z-index: -10;
+        right:0%;
+    }
+    #iphone
+    {background-image:url(iphone-background.png);
+        width: 1500px;
+        height:1050px;
+        background-size:cover;
+        position:relative;
+        top:500px;
+        z-index:10;
+        bottom:0%;
+        left:0%;
+
+    }
+
+    #stars{
+        font-family:"MilkyWay";
+        font-size:40px;
+        top:0%;
+        position:fixed;
+        z-index: -20}
+
+        #texts {
+/*            background-image: url(http://cl.ly/0s0Y3d3T3C3J/8-1-15_207PM.png);
+*/            width: 1200px;
+            height:620px;
+            background-size:contain;
+            position: relative;
+            top:25%;
+            left:8%;
+            border-radius:5%;
+
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+
+    <div id="moon"></div>
+
+    <div class="sky" id="skya"></div>
+    <div class="sky" id="skyb"></div>
+    <div class="sky" id="skyc"></div>
+    <div class="sky" id="skyd"></div>
+    <div class="sky" id="skye"></div>
+
+        
+        <div id="stars">State of moon </div>
+
+
+    <div id="iphone">
+
+        
+        <div id="texts"><div> 
+
+        </div>
+
+    <script type="text/javascript">
+var skya = document.getElementById("skya");
+var skyb = document.getElementById("skyb");
+var skyc = document.getElementById("skyc");
+var skyd = document.getElementById("skyd");
+var skye = document.getElementById("skye");
+
+    //   var sky = Array.from(document.getElementsByClassName("sky"));
+    // sky.forEach(function(i){i.innerText="hello"});
+  
+
+    
+  var texts = document.getElementById("texts");
+
+var self = this;
+var array.self = [x, y, z]
+
+var x = moon
+
+   [
+
+   ["Waning Gibbous", "Saturday, August 1st, 2015", "url(http://cl.ly/0s0Y3d3T3C3J/8-1-15_207PM.png)" ];
+
+   ]
+
+forEach(i){console.log(i)}
+
+  forEach (function(array.self) {
+
+    if (array.self.[0] == "Waning Gibbous") 
+    {
+texts.style.backgroundImage = test[2];
+skya.innerText = test[1];
+}
+};
+
+
+        // sky[i].style.position="relative";
+        // sky[i].style.top= Math.floor(Math.random()* 200) + "%";
+    // };
+
+    // iterate();
+
+
+    window.onload = function() { 
+    var state = "MA";
+    var city = "Boston";
+    var wundergroundKey = "347dedfeb658d999";
+
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+
+    oReq.open("GET", "http://api.wunderground.com/api/" + wundergroundKey + "/astronomy/q/" + state + "/" + city + ".json");
+
+
+    oReq.send();
+
+
+
+
+    function reqListener() {
+        var response = JSON.parse(this.responseText);
+        console.log(this.responseText)
+
+
+    var moonDiv = document.getElementById('moon');
+    document.body.appendChild(moonDiv);
+    // moonDiv.style.width = "400px";
+    // moonDiv.style.height = "400px";
+    moonDiv.style.backgroundSize = "cover";
+    var moonPhase = response.moon_phase.phaseofMoon;
+    var currentTime = response.moon_phase.current_time.hour;
+
+
+    moonDiv.innerText = "The current moon is " + moonPhase + "The current time is " + currentTime;
+
+    moonDiv.id = "moon";
+
+    if (moonPhase == "Waning Gibbous") {moonDiv.style.backgroundImage="url(http://cl.ly/1D0B2f0U0S1d/waning-gibbous.png)"}
+
+else if (moonPhase == "Full Moon") {moonDiv.style.backgroundImage="url(http://cl.ly/0f1u271c2R2u/full-moon.png)";}
+
+else if (moonPhase == "Waxing Gibbous") {moonDiv.style.backgroundImage="url()";}
+
+else if (moonPhase == "First Quarter") {moonDiv.style.backgroundImage="url()";}
+
+else if (moonPhase == "Last Quarter") {moonDiv.style.backgroundImage="url()";}
+
+else if (moonPhase == "Waning Crescent") {moonDiv.style.backgroundImage="url()";}
+
+else if (moonPhase == "Waxing Crescent") {moonDiv.style.backgroundImage="url()";}
+
+
+    };
+
+   
+
+// var bigArray = [var waxGibA = [moonphase, date, imageLink]}
+
+//I need to put all of these(in database) above. 
+
+// var fullMoon=
+
+//     [ ["4/3/2015",
+//     ""] 4/4/2015,
+//     4/5/2015,
+//     5/3/2015,
+//     6/2/2015,
+//     7/1/2015,
+//     7/31/2015,
+//     8/29/2015,
+//     9/27/2015,
+//     10/27/2015,
+//     11/25/2015,
+//     12/25/2015];
+//     var waningGibbous=[ 4/6/15,
+//     4/7/15,
+//     4/8/15,
+//     4/9/15,
+//     4/10/15,
+//     4/28/15] var lastQuarter [ 4/11/2015,
+//     5/11/2015,
+//     6/9/2015,
+//     7/8/2015,
+//     8/6/2015,
+//     9/5/2015,
+//     10/4/2015,
+//     11/3/2015,
+//     12/3/2015];
+    
+
+   };
+
+    
+
+    
+    </script>
+
+
+    <!-- <svg width="440" height="140" xmlns="http://www.w3.org/2000/svg">
+
+<filter>
+  <feDistantLighting style="azimuth:40px; elevation:40px">
+    </feDistantLight>
+</filter>
+
+<div id ="illumination"></div> -->
+    <!-- I want the data to show the date of the text last time there was that moon.
+
+On ____ date, when the moon was like this, you wrote..
+also I want the sky to change color based on the time and the move to change size -->.
+</body>
+<!-- things i need to make:
+moon that changes size — need to find out the different phases of moon that wunderground has -->
+
+</html>
