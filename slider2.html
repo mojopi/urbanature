@@ -20,14 +20,16 @@ var display = document.querySelector('#display');
 
 // var getColorString = function(value) {
 // 	return 'hsl(' + Math.floor(360*value/100) + ',100%,50%)';
-// };
+
+
+//writing in english...if slider value is one thing, have this as background image. If slider value is another value, than have y as background image and perhaps do this smoothely.//
 
 var slider = document.querySelector('input');
 
 slider.addEventListener('input', function(event) {
 	display.innerText = slider.value;
 	
-	display.style.backgroundColor = getColorS(slider.value);
+	display.style.backgroundImage = getColorS(slider.value);
 });
 </script>
 </body>

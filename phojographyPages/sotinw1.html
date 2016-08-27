@@ -25,7 +25,7 @@
 
 <span id="h1">Magical Realism</span>
 
-<p>The thumbnail came with the text "stegosaur in Central Square." After it was shared with me, I began seeing and taking photographs of imaginary scenes in the world. I played with size and scaling, perspective, anthropomorphized plants and objects, and added surreal captions in order to see and share magical scenes in the world.</p>
+<p>I play with size, scaling, perspective, anthropomorphism, and the use of captions in order to share surreal scenes in the world.</p>
 
   </div>
 
@@ -48,17 +48,46 @@
             square.style.backgroundRepeat = "no-repeat";
             square.style.border = "1px";
 
-            // square.style.backgroundColor = "green";
 
             square.style.backgroundImage = "url(./phojography/surrealism/" + i + ".jpg)";
 
             square.style.backgroundSize = "contain";
-            square.style.id = "square" + i;};
+            square.style.id = "square" + i;
+
+            var textbox = document.createElement("div")
+            square.appendChild(textbox);
+            textbox.style.position = "relative";
+            textbox.style.top = "80%";
+            textbox.style.width = "400px";
+            textbox.style.height = "30px";
+            textbox.style.display = "inline-block";
+            // textbox.style.margin = "10px";
+            textbox.style.backgroundColor = "white";
+            textbox.id = "textbox" + i;
+            textbox.style.fontFamily = "courier"; 
+
+        };
 
 
 
-    for (var i = 1; i < 15; i++) 
+    for (var i = 0; i < 9; i++) 
     { makeSquare(i);}
+
+    textbox0.innerText = "stegosaur in central square";
+    textbox1.innerText = "swimming together";
+    textbox2.innerText = "gecko berry";
+    textbox3.innerText = "post-apocalypse gecko-prints";
+    textbox4.innerText = "a peek into the cormorant convention";
+    textbox5.innerText = "cormorant democracy";
+    textbox6.innerText = "bad hair day";
+    textbox7.innerText = "beanstalk overtakng New Jersey";
+
+
+
+
+
+
+
     </script>
 
 </body>
