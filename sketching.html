@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+
+		#h1 {
+        font-family: courier;
+        font-size: 30px;
+    }
+    
+    p {
+        font-family: courier;
+        font-size: 18px;
+    }
+    
+    a {
+        font-family: courier;
+        font-size: 18px;
+    }
+
+    #fern{
+    	width:1000px;
+    	height:400px;
+    	background-image:url("./scan/2.png");
+    	background-size: cover;
+    	background-repeat: no-repeat;
+    	z-index: 10;
+    	position:relative;
+    }
+
+     @keyframes fly {
+        0% {
+            background-position: 10px;
+        }
+        100% {
+            background-position: -630px;
+        }
+    }
+
+    img{
+    	width:1000px;
+    	height:400px;
+    }
+		
+	</style>
+    
+ 
+</head>
+<body>
+<div id="cursor"></div>
+
+<span id="h1">sketching</span>
+
+<p> Sketching totally changes the way you see. My mind was blow recently while photographing a chrysalis. Look at the image below...notice anything interesting to you?.  <br><br>
+
+ <img src="chrysalis.jpg">
+
+ Do you see the caterpillar's legs and body segments in the chrysalis!? It's particularly pronounced in the brown chrysalis on the right. I've "known" the steps of insect development for a while. But when I actually <italic>looked</italic> at a chrysalis, I saw that it <italic>is</italic> the caterpillar! <italic>Seeing<italic> the legs and the body segments changes the way I <italic>know</italic> how a caterpillar becomes a butterfly (ie. it dangles upside down from a surface, becomes totally paralyzed and stuck to itself and it's body parts change, and after a while it sheds itself and molts into a butterfly.)
+ <br><br>
+
+We could observe and document butterfly or amphibian or...
+<br><br>
+<a href="https://www.amazon.com/dp/B012LPXG7K/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1#nav-subnav">This book</a> about bird development took twelve years to make but I thought it was a beautiful example of someone who used sketching and watercolor to document bird development in new ways. 
+
+<br><br>
+
+ I'm particularly excited about the idea of drawing/photographing an animal throughout the course of it's development (eg. butterflies, amphibians, etc.) to understand metamorphoses more deeply. I could imagine use using pencils and paper, watercolor, and/or digital drawing tools (eg. <a href="https://www.fiftythree.com/">paper</a>) to make an interactive digital story or a printed book.<br><br>
+
+With digital tools we could give life to our sketches via animation (like this butterfly...I drew it in the paper app and animated it with some code) or other forms of user interaction.   </p>
+
+<a href="http://mojopi.github.io/story_in_pictures/alec/index.html"><div id="fern"></div></a>
+
+<p>Click on this fern leaf to get to the first sketch-based digital story that I made as a gift for a friend. It is a fantasy children's story. <br><br> If you click on the link on the first page and then click on the gears on the subsequent pages, you will get to the story. <br> Click on any  image in the story and it will bring up clouds with quotes in them. Each cloud is a link to a website related to the quote.</p>
+
+
+
+<script type="text/javascript">
+
+    var cursor = document.getElementById('cursor');
+
+        cursor.style.backgroundImage = "url(butterfly.png)";
+                cursor.style.backgroundSize ="cover";
+                cursor.style.zIndex = "1";
+                cursor.style.width = "300px";
+                cursor.style.height = cursor.style.width;
+                cursor.style.position = 'fixed';
+                cursor.style.animationName = "fly";
+                cursor.style.animationTimingFunction ="steps(2)"
+                cursor.style.animationDuration = "0.5s";
+                cursor.style.animationIterationCount = "infinite";
+                cursor.style.cursor = "none";
+
+
+
+        document.addEventListener("mousemove", function(event) {
+            cursor.style.top = event.y - (parseInt(cursor.style.width) / 2) + "px";
+            cursor.style.left = event.x  - (parseInt(cursor.style.width) / 2) + "px";});
+
+          </script>
+
+</body>
+</html>

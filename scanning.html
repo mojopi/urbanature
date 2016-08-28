@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<style>
+		#h1 {
+        font-family: courier;
+        font-size: 30px;
+    }
+    
+    p {
+        font-family: courier;
+        font-size: 18px;
+    }
+    
+    a {
+        font-family: courier;
+        font-size: 18px;
+    }
+	</style>
+</head>
+<body>
+
+<span id="h1">scan + cyan</span>
+<p>
+	You could imagine using various tools and materials to see plants and animals in new ways. Recently, I got a flatbed scanner and have been scanning different types of flowers, leaves, and seeds to make high resolution images. The scanner allows me to capture a perspective that I would never be able to secure with a traditional camera. <br><br> You could imagine using this tool to make, interactive, digital stories with images of seaweed, a photography book about feathers, grasses, or the small flowers we rarely notice, a stationary line with images of local plants on the front and small descriptions on the back, etc. <br><br>
+
+	The idea of scanning plants was inspired by this beautiful book about seaweed called <a href="https://www.amazon.com/dp/B00I53DMEA/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">The Ocean Garden</a>. Seaweed seems like a particularly good medium to scan because it is flat and transparent. I've found that flat plant and anima parts (eg. ferns leaves, grass flowers, feathers) are also well-suited to this tool.
+
+	<br><br>
+
+	I've also started to make cyanotypes (blue prints where that use chemical reactions with UV light). I'm particularly excited about making prints (or maybe a book) of entire plants and root systems this way.
+
+
+</p>
+
+<script>
+	
+	    function makeRectangle (x) {
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "1000px";
+            square.style.height = "400px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+            square.style.backgroundImage = "url(./scan/" + x + ".png)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "rectangle" + x;};
+
+
+
+    for (var i = 1; i < 5; i++) 
+    { makeRectangle(i);}
+
+
+
+   function makeSquare (x) {
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "400px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+            square.style.backgroundImage = "url(./scan/" + x + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + x;};
+
+    for (var i = 1; i < 7; i++) 
+    { makeSquare(i);}
+</script>
+
+
+</body>
+</html>
