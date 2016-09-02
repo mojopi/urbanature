@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+        h1{
+            font-family:courier;
+            font-size:;
+            color:;
+        }
+
+        p{
+            font-family: calibri;
+            font-size:18px;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>  <h1>
+
+<br><br>
+
+
+<h1>Day 1</h1> 
+<br>
+<br>
+<p>
+sketched honeylocust tree, chickadees and several other bird species, beach, and zuchinni flowers. </p>
+
+<br>
+<br>
+
+<script>
+
+
+    
+    function makeSquare (x) {
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "400px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            square.style.backgroundImage = "url(./sketching/day1/" + x + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + x;};
+
+
+    for (var i = 1; i < 8; i++) 
+    { makeSquare(i);}
+
+
+</script>
+
+<h1>Day 2</h1>
+<br>
+<br>
+<p>
+sketched and watercolored trumpet flower vine and noticed ants on pods.
+</p>
+<br>
+<br>
+<img style="width:400px; height:400px" src="./sketching/day2/1.jpg">
+
+<h1>Day 3</h1>
+<br>
+<br>
+<p>
+sketched and watercolored St. Johns wort flower.
+</p>
+<br>
+<br>
+<img style="width:400px; height:400px" src="./sketching/day3/1.jpg">
+
+<h1>Day 4</h1>
+
+<br>
+<br>
+<p>
+sketched flower that I have yet to identify and sunset.
+</p> 
+<br>
+<br>
+
+
+<script>
+
+    
+    function makeSquare (x) {
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "400px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+            square.style.backgroundImage = "url(./sketching/day4/" + x + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + x;};
+
+
+    for (var i = 1; i < 5; i++) 
+    { makeSquare(i);}
+
+
+</script>
+</body>
+</html>
