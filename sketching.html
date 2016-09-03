@@ -1,121 +1,158 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
-        
-        h1{
-            font-family:courier;
-            font-size:;
-            color:;
-        }
-
-        p{
-            font-family: calibri;
-            font-size:18px;
-            
-        }
-
-
+    #h1 {
+        font-family: courier;
+        font-size: 30px;
+    }
+    
+    p {
+        font-family: calibri;
+        font-size: 18px;
+    }
     </style>
 </head>
+
 <body>
-<h1>  <h1>
-
-<br><br>
-
-
-<h1>Day 1</h1> 
-<br>
-<br>
-<p>
-sketched honeylocust tree, chickadees and several other bird species, beach, and zuchinni flowers. </p>
-
-<br>
-<br>
-
-<script>
-
-
+    <span id="h1">Learning to See</span>
+    <br>
+    <br>
+    <p>I've started to draw and paint to get better at seeing. So far, drawing feels like the best way to see it. My goal is to draw something every day. Hopefully over time, I'll learn to see better and learn to draw better. By keeping track of it all here, I'll be able to see myself getting better over time. </p>
     
-    function makeSquare (x) {
+    <p>Part of why I want to do this is because when I learned and taught biology in school and college, it all started with the general ( processes like photosynthesis as opposed to seeing and learning individual plants). I think  this prevented me from actually <i>seeing</i> and <i>noticing</i> the diversity and details of life around me. <br>In the pursuit of creating the art of biology (as opposed to the science of it), I want to start with the concrete. Put a bucket of shells and crabs and flowers and fruits on a table and <i>look</i>. That's what Darwin did, right?</p>
+    <span id="h1">Day 1</span>
+    <br>
+    <br>
+    <p>
+    What I sketched: honeylocust tree, chickadees and several other bird species, beach, and zuchinni flowers. </p>
+    <br><br>
 
-            var square = document.createElement('div');
-                        document.body.appendChild(square);
-            square.style.width = "400px";
-            square.style.height = "400px";
-            square.style.display = "inline-block";
-            square.style.margin = "10px";
-            square.style.backgroundRepeat = "no-repeat";
-            square.style.border = "1px";
+    <p>What I saw: Chickadees have a yellow spot on their chests and many bird species are darker on their dorsal sides than they are on their ventral sides. Chickadees peck the barks of trees (often covered in lichen). Honey locust branches branch in twos over and over again and for the first time I <i>saw</i> the curves of the honeylocust tree shading a porch, which I've nominally looked at my whole life. Zuckini flowers are incredible! Their petals are elastic and fused all as one. I love the way they feel.</p>
+    <br>
+    <script>
+    function makeSquare(x) {
 
-            square.style.backgroundImage = "url(./sketching/day1/" + x + ".jpg)";
+        var square = document.createElement('div');
+        document.body.appendChild(square);
+        square.style.width = "500px";
+        square.style.height = "300px";
+        square.style.display = "inline-block";
+        square.style.margin = "10px";
+        square.style.backgroundRepeat = "no-repeat";
+        square.style.border = "1px";
 
-            square.style.backgroundSize = "contain";
-            square.style.id = "square" + x;};
+        square.style.backgroundImage = "url(./sketching/day1/" + x + ".jpg)";
 
-
-    for (var i = 1; i < 8; i++) 
-    { makeSquare(i);}
-
-
-</script>
-
-<h1>Day 2</h1>
-<br>
-<br>
-<p>
-sketched and watercolored trumpet flower vine and noticed ants on pods.
-</p>
-<br>
-<br>
-<img style="width:400px; height:400px" src="./sketching/day2/1.jpg">
-
-<h1>Day 3</h1>
-<br>
-<br>
-<p>
-sketched and watercolored St. Johns wort flower.
-</p>
-<br>
-<br>
-<img style="width:400px; height:400px" src="./sketching/day3/1.jpg">
-
-<h1>Day 4</h1>
-
-<br>
-<br>
-<p>
-sketched flower that I have yet to identify and sunset.
-</p> 
-<br>
-<br>
+        square.style.backgroundSize = "contain";
+        square.style.id = "square" + x;
+    };
 
 
-<script>
-
-    
-    function makeSquare (x) {
-
-            var square = document.createElement('div');
-                        document.body.appendChild(square);
-            square.style.width = "400px";
-            square.style.height = "400px";
-            square.style.display = "inline-block";
-            square.style.margin = "10px";
-            square.style.backgroundRepeat = "no-repeat";
-            square.style.border = "1px";
-
-            square.style.backgroundImage = "url(./sketching/day4/" + x + ".jpg)";
-
-            square.style.backgroundSize = "contain";
-            square.style.id = "square" + x;};
+    for (var i = 1; i < 8; i++) {
+        makeSquare(i);
+    }
+    </script>
+    <br>
+    <span id="h1">Day 2</span>
+    <br>
+    <br>
+    <p>
+        What I sketched: trumpet flowers and pods. <br><br>
+        What I saw: the pods are surprisingly long given the size of the flower. Ants crawl on the pods and since they come out when I shook the vine, it seemed as if they were defending the trumpet flower vine. 
 
 
-    for (var i = 1; i < 5; i++) 
-    { makeSquare(i);}
+    </p>
+    <br>
+    <br>
+    <img style="width:400px; height:600px; margin:20px;" src="./sketching/day2/1.jpg"><br>
+    <span id="h1">Day 3</span>
+    <br>
+    <br>
+    <p>
+        What I sketched: St. Johns wort flower.<br><br>
+        What I saw: Interesting pistil and stamens.
+    </p>
+    <br>
+    <br>
+    <img style="width:400px; height:600px" src="./sketching/day3/1.jpg"><br><br>
+    <span id="h1">Day 4</span>
+    <br>
+    <br>
+    <p>
+        What I sketched: Butter-and-eggs flower (<a href="http://www.pbase.com/dr24/image/144757117">Linaria vulgaris</a>), which I identified on this <a href="http://www.pbase.com/dr24/wildflowers&page=all">website.</a> <br><br>
+        What I saw: First time I played with shadow in trying to show the different folds of the flower. I also played with smearing watercolor by moving the paper around. Loved the color effects but they looked better before they dried and were absorbed and made less distinct in the pulp of the paper.
+    </p>
+    <br>
+    <br>
+    <script>
+    function makeSquare(x) {
+
+        var square = document.createElement('div');
+        document.body.appendChild(square);
+        square.style.width = "400px";
+        square.style.height = "400px";
+        square.style.display = "inline-block";
+        square.style.margin = "10px";
+        square.style.backgroundRepeat = "no-repeat";
+        square.style.border = "1px";
+
+        square.style.backgroundImage = "url(./sketching/day4/" + x + ".jpg)";
+
+        square.style.backgroundSize = "contain";
+        square.style.id = "square" + x;
+    };
 
 
-</script>
+    for (var i = 1; i < 5; i++) {
+        makeSquare(i);
+    }
+    </script>
+    <br>
+    <div id="line"></div>
+    <br>
+    <br>
+     <span id="h1">Day 5</span>
+    <br>
+    <br>
+    <p>
+        What I sketched: Snail shell.</a> <br><br>
+        What I saw: Shadows, depth, highlights and that if I squint I can see these forms more definitively.
+    </p>
+    <br>
+    <br>
+    <script>
+    function makeSquare(x) {
+
+        var square = document.createElement('div');
+        document.body.appendChild(square);
+        square.style.width = "400px";
+        square.style.height = "400px";
+        square.style.display = "inline-block";
+        square.style.margin = "10px";
+        square.style.backgroundRepeat = "no-repeat";
+        square.style.border = "1px";
+
+        square.style.backgroundImage = "url(./sketching/day5/" + x + ".jpg)";
+
+        square.style.backgroundSize = "contain";
+        square.style.id = "square" + x;
+    };
+
+
+    for (var i = 1; i < 5; i++) {
+        makeSquare(i);
+    }
+    </script>
+    <br>
+    <div id="line"></div>
+    <br>
+    <br>
+
+
+
+
 </body>
+
 </html>
