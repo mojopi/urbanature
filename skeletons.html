@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+    <style>
+
+    #h1{
+        font-family: courier;
+        font-size:30px;
+    }
+
+    p{
+        font-family: calibri;
+        font-size:18px;
+    }
+        
+
+    </style>
+    
+</head>
+<body>
+
+  <div>
+
+<span id="h1">skeletons</span>
+
+  </div>
+
+  <script>
+
+
+
+    function makeSquare (i) {
+
+    	
+
+
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "400px";
+            square.style.height = "400px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+
+
+            square.style.backgroundImage = "url(./auburn/skeletons/" + i + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + i;
+
+    //         var textbox = document.createElement("div")
+    //         square.appendChild(textbox);
+    //         textbox.style.position = "relative";
+    //         textbox.style.top = "80%";
+    //         textbox.style.width = "400px";
+    //         textbox.style.height = "30px";
+    //         textbox.style.display = "inline-block";
+    //         // textbox.style.margin = "10px";
+    //         textbox.style.backgroundColor = "white";
+    //         textbox.id = "textbox" + i;
+    //         textbox.style.fontFamily = "calibri"; 
+
+        };
+
+
+
+    for (var i = 1; i < 9; i++) 
+    { makeSquare(i);}
+
+    // textbox0.innerText = "stegosaur in central square";
+    // textbox1.innerText = "swimming together";
+    // textbox2.innerText = "gecko berry";
+    // textbox3.innerText = "post-apocalypse gecko-prints";
+    // textbox4.innerText = "bird convention...";
+    // textbox5.innerText = "...and democracy";
+    // textbox6.innerText = "bad hair day";
+    // textbox7.innerText = "beanstalk overtakng New Jersey";
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
